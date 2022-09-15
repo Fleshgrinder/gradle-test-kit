@@ -1,4 +1,22 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    kotlin("jvm") version embeddedKotlinVersion
+}
+
+dependencies {
+    api("org.junit.jupiter:junit-jupiter-api:5.9.0")
+    api("io.strikt:strikt-core:0.34.1")
+}
+
 tasks {
+    withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            freeCompilerArgs = freeCompilerArgs + listOf(
+                "-Xjvm-default=all",
+            )
+        }
+    }
     register<NotImplemented>("publishSnapshot")
     register<NotImplemented>("publishRelease")
 }

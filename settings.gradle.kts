@@ -1,1 +1,1 @@
-rootProject.name = "gradle-template"
+rootProject.name = "gradle-test-kit"
